@@ -1,6 +1,7 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutterdemoview/util/random_color.dart';
+// Use universal_html library  because the tests was failed with 'dart:html'
+import 'package:universal_html/prefer_universal/html.dart' as html;
 
 class DemoView extends StatefulWidget{
   @override
@@ -21,7 +22,7 @@ class _DemoViewState extends State<DemoView>{
     // Get size of the current media
     Size size = MediaQuery.of(context).size;
 
-    window.onClick.listen((event) {
+    html.window.onClick.listen((event) {
       windowOnClick();
     });
 
@@ -33,7 +34,7 @@ class _DemoViewState extends State<DemoView>{
           color: bodyColor,
         ),
         alignment: Alignment.center,
-        child: Text('Hey There',
+        child: Text('Hey there',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 50,
